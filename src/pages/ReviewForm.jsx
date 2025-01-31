@@ -99,6 +99,12 @@ function ReviewForm() {
                         <button type="submit" className="button" disabled={isSubmitting}>
                             {isSubmitting ? 'Submitting...' : 'Submit Review'}
                         </button>
+
+                        {submitStatus === 'success' && (
+                            <div className="error-message">
+                                Failed to submit review. Please try again.
+                            </div>
+                        )}
                     </Form>
                 )}
             </Formik>
