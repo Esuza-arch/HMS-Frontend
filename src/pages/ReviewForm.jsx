@@ -95,6 +95,10 @@ function ReviewForm() {
                             <Field as="textarea" id="comment" name="comment" className="form-input" rows={4}/>
                             <ErrorMessage name="comment" component="div" className="error-message"/>
                         </div>
+
+                        <button type="submit" className="button" disabled={isSubmitting}>
+                            {isSubmitting ? 'Submitting...' : 'Submit Review'}
+                        </button>
                     </Form>
                 )}
             </Formik>
