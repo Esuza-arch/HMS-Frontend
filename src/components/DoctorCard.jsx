@@ -8,7 +8,7 @@ function DoctorCard({ doctor}) {
             <h3 className="doctor-name">{doctor.name}</h3>
             <p className="doctor-specialty">{doctor.speciallty}</p>
             <p className="doctor-experience">{doctor.experience} years of experience</p>
-            <Link to={`/appointments?doctorId=${doctor.id}`}>Book an appointment</Link>
+            <Link to={`/appointments?doctorId=${doctor.id}`} calssName="button">Book an appointment</Link>
            </div>
         </div>
     )
