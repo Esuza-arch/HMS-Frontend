@@ -86,7 +86,14 @@ function ReviewForm() {
                                         </div>
                                     )}
                                 </Field>
+                                <ErrorMessage name="rating" component="div" className="error-message"/>
                             </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="comment" className="form-label">Your Review</label>
+                            <Field as="textarea" id="comment" name="comment" className="form-input" rows={4}/>
+                            <ErrorMessage name="comment" component="div" className="error-message"/>
                         </div>
                     </Form>
                 )}
