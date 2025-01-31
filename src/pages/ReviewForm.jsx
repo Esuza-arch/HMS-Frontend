@@ -27,7 +27,7 @@ function ReviewForm() {
 
     return (
         <div>
-            <h1>Write a Review</h1>
+            <h1 className="review-form">Write a Review</h1>
             <Formik
                 initialValues={{
                     doctorId: '',
