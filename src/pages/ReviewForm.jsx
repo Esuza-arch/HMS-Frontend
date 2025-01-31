@@ -24,3 +24,73 @@ function ReviewForm() {
           .then(data => setDoctors(data))
           .then(error => console.error('Error fetching doctors:', error));
     }, []);
+
+    return (
+        <div>
+            <h1>Write a Review</h1>
+            <Formik
+                initialValues={{
+                    doctorId: '',
+                    rating: 5,
+                    comment: '',
+                }}
+                validationSchema={ReviewSchema}
+                onSubmit={(values, { setSubmitting, resetForm }) => {
+                    fetch('http://127.0.0.1:5555/reviews', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            ...values,
+                            patientI: 1,
+                        }),
+                    })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Failed to submit review');
+                        setSubmitStatus('success');
+                        resetForm();
+                    })
+                    .catch(() => {
+                        setSubmitStatus('error');
+                    })
+                    .finally(() => {
+                        setSubmitting(false);
+                    });
+                }}
+            >
+                {({ isSubmitting }) => (
+                    <Form className="form">
+                        <div className="form-group">
+                            <label htmlFor="doctorId" className="form-label">Select Doctor</label>
+                            <Field as="select" name="doctorId" className="form-input">
+                                <option value="">Choose a doctor</option>
+                                {doctors.map(doctor => (
+                                    <option key={doctor.id} value={doctor.id}>{doctor.name} - {doctor.specialty}</option>
+                                ))}
+                            </Field>
+                            <ErrorMessage name="doctorId" component="div" className="error-message"/>
+                        </div>
+
+                        <div className="form-group">
+                            <label className="form-label">Rating</label>
+                            <div className="rating-input">
+                                <Field name="rating">
+                                    {({ field }) => (
+                                        <div className="star-rating">
+                                            {[1, 2, 3, 4, 5].map((star) => (
+                                                <button key={star}type="button" onClick={() => field.onChange({
+                                                    target: { name: 'rating', value: star}
+                                                })} className={`star-button $(star <= field.value ? 'active' : '')`}> <Star size={24} /> </button>
+                                            ))}
+                                        </div>
+                                    )}
+                                </Field>
+                            </div>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
+                
+        </div>
+    )
