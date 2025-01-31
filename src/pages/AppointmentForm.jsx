@@ -41,7 +41,7 @@ function AppointmentForm() {
                             patientId: 1,
                             ...values,
                         }),
-                    }),
+                    })
                     .then(response => {
                         if (!response.ok) throw new Error('Failed to book appointment');
                         setSubmitStatus('success');
