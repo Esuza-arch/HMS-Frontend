@@ -108,6 +108,8 @@ function ReviewForm() {
                     </Form>
                 )}
             </Formik>
-                
         </div>
-    )
+    );
+}
+
+export default ReviewForm;
