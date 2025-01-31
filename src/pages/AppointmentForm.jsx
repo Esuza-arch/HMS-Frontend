@@ -21,7 +21,7 @@ function AppointmentForm() {
     const doctorId = searchParams.get('doctorId') || 1
 
     return (
-        <div>
+        <div className="appointment-form">
             <h1>Book an Appointment</h1>
             <Formik
                 initialValues={{
@@ -56,32 +56,37 @@ function AppointmentForm() {
                 }}
             >
                 {({ isSubmitting }) => (
-                    <Form>
-                        <div>
-                            <label htmlForm="date">Date</label>
-                            <Field type="date" id="date" name="date"/>
-                            <ErrorMessage name="date" component="div" />
+                    <Form className>
+                        <div className="form-group">
+                            <label htmlForm="date" className="form-label">Date</label>
+                            <Field type="date" id="date" name="date" className="form-input"/>
+                            <ErrorMessage name="date" component="div" className="error-message" />
                         </div>
 
-                        <div>
-                            <label htmlForm="time">Time</label>
-                            <Field type="time" id="time" name="time"/>
-                            <ErrorMessage name="time" component="div" />
+                        <div className="form-group">
+                            <label htmlForm="time" className="form-label">Time</label>
+                            <Field type="time" id="time" name="time" className="form-input"/>
+                            <ErrorMessage name="time" component="div" className="error-message"/>
                         </div>
 
-                        <div>
-                            <label htmlForm="reason">Reason</label>
-                            <Field as="textarea" id="reason" name="reason" rows={4}/>
-                            <ErrorMessage name="reason" component="div" />
+                        <div className="form-group">
+                            <label htmlForm="reason" className="form-label">Reason for visit</label>
+                            <Field as="textarea" id="reason" name="reason" className="form-input" rows={4}/>
+                            <ErrorMessage name="reason" component="div" className="error-message" />
                         </div>
 
-                        <button type="submit" disabled={isSubmitting}>
+                        <button type="submit" className="button" disabled={isSubmitting}>
                             {isSubmitting ? 'Booking...' : 'Book Appointment'}
                         </button>
 
                         {submitStatus === 'success' && (
                             <div>
                                 Appointment booked successfully!
+                            </div>
+                        )}
+                        {submitStatus === 'error' && (
+                            <div className="error-message">
+                                Failed to book appointment. Please try again.
                             </div>
                         )}
                     </Form>
