@@ -357,3 +357,40 @@ body {
 .star-button.active {
   color: #fbbf24;
 }
+
+/* Status Messages */
+.success-message {
+  background-color: var(--success-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.error-message {
+  background-color: var(--error-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.25rem;
+  color: var(--text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .appointment-form,
+  .review-form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+}
