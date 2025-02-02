@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Formik, Form, Field, ErroMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const AppointmentSchema = Yup.object().shape({
@@ -16,7 +16,7 @@ const AppointmentSchema = Yup.object().shape({
 });
 
 function AppointmentForm() {
-    const [seaarchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const [submitStatus, setSubmitStatus] = useState('idle');
     const doctorId = searchParams.get('doctorId') || 1
 

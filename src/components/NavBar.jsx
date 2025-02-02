@@ -8,7 +8,7 @@ function NavBar() {
             <div className="navbar-content">
                 <Link to="/" className="nav-logo">
                     <UserRound size={24} />
-                    <span>Edel HealthCare</span>
+                    <span>Tminus HealthCare</span>
                 </Link>
                 <ul className="nav-links">
                     <li><Link to="/">Home</Link></li>

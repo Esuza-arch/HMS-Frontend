@@ -7,7 +7,7 @@ function Home() {
         <div className="home">
             <section className="hero">
                 <div className="hero-content">
-                    <h1>Welcome to Edel</h1>
+                    <h1>Welcome to Tminus Healthcare</h1>
                     <p>Find the best doctors and book appointments with ease. Your health is our priority.</p>
                 </div>
             </section>
@@ -18,19 +18,19 @@ function Home() {
                     <div className="service-card">
                         <h3>Find Doctors</h3>
                         <p>Browse through our list of qualified healthcare professionals.</p>
-                        <Link to="/doctors">View doctors</Link>
+                        <Link to="/doctors" className="button">View doctors</Link>
                     </div>
 
                     <div className="service-card">
                         <h3>Book Appointments</h3>
                         <p>Schedule appointments with your preferred doctors.</p>
-                        <Link to="/appointments">Book Now</Link>
+                        <Link to="/appointments" className="button">Book Now</Link>
                     </div>
 
                     <div className="service-card">
                         <h3>Leave Reviews</h3>
                         <p>Share your experiences to help others.</p>
-                        <Link to="/reviews">Write a Review</Link>
+                        <Link to="/reviews" className="button">Write a Review</Link>
                     </div>
                 </div>
             </section>
