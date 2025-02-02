@@ -19,7 +19,7 @@ function ReviewForm() {
     const [submitStatus, setSubmitStatus] = useState('idle');
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5555/doctors')
+        fetch('https://hms-backend-2-lmbv.onrender.com')
           .then(response => response.json())
           .then(data => setDoctors(data))
           .then(error => console.error('Error fetching doctors:', error));
@@ -36,7 +36,7 @@ function ReviewForm() {
                 }}
                 validationSchema={ReviewSchema}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
-                    fetch('http://127.0.0.1:5555/reviews', {
+                    fetch('https://hms-backend-2-lmbv.onrender.com', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ function ReviewForm() {
                                     {({ field }) => (
                                         <div className="star-rating">
                                             {[1, 2, 3, 4, 5].map((star) => (
-                                                <button key={star}type="button" onClick={() => field.onChange({
+                                                <button key={star} type="button" onClick={() => field.onChange({
                                                     target: { name: 'rating', value: star}
                                                 })} className={`star-button $(star <= field.value ? 'active' : '')`}> <Star size={24} /> </button>
                                             ))}

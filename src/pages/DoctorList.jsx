@@ -7,7 +7,7 @@ function DoctorList() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5555/doctors')
+        fetch('https://hms-backend-2-lmbv.onrender.com')
           .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch doctors');

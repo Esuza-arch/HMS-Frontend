@@ -31,7 +31,7 @@ function AppointmentForm() {
                 }}
                 validationSchema={AppointmentSchema}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
-                    fetch('http://127.0.0.1:5555/appointments', {
+                    fetch('https://hms-backend-2-lmbv.onrender.com', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
